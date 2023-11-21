@@ -1,0 +1,13 @@
+1.拉下代码
+
+2.当前目录执行make(默认加上了-g参数，可以gdb断点调试，不需要可以去makefile删除)
+
+3.当前目录执行./httpserver port,例如./httpserver 8888,则会在监听8888端口，默认是8000端口
+
+4.执行
+(1)curl 127.0.0.1:port
+  会访问www目录下的index.html(默认是index.html)
+(2)curl 127.0.0.1:port/test.html
+  会访问www目录下的test.html
+(3)curl 127.0.0.1:port/test.php
+    会执行www目录下的test.php脚本，把脚本的输出内容返回
