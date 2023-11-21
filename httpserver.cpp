@@ -6,13 +6,16 @@ int main(int argc, char *argv[]) {
     //对端已经关闭了，服务端如果还在发送数据给客户段，则内核会发送SIGPIPE信号给进程，导致进程崩溃，这里忽略此信号
     signal(SIGPIPE, SIG_IGN);
     unsigned short port = 8000;
-//    unsigned short port1 = 8888;
-//    unsigned short port2 = 8889;
+
     if (argc > 1) {
         port = atoi(argv[1]);
     }
     MyHttpServer server;
     server.Start(port);
+//    server.Start1(port);
+    //下面的方式可以支持监听多个端口
+    // unsigned short port1 = 8888;
+//    unsigned short port2 = 8889;
 //    server.Start1(port);
 //    EpollServer epoll;
 //    MyHttpServer server1;
